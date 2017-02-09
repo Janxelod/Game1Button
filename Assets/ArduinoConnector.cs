@@ -36,7 +36,7 @@ public class ArduinoConnector : MonoBehaviour {
 		if (s == "PONG") {
 			Debug.Log(s);
 		}
-        Debug.Log(s);
+		Rotator.xRot = 220 - (float.Parse(s) * 2.0f);
     }
 	public void Update (){
 		if (arduinoMode) {
