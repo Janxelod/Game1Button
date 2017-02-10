@@ -11,6 +11,6 @@ public class LightTest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.RotateAround(transform.position, Vector3.right, 200 * Time.deltaTime);
+        transform.RotateAround(transform.position, Vector3.right, 50 * Time.deltaTime);
     }
 }
