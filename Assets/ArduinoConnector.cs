@@ -24,6 +24,8 @@ public class ArduinoConnector : MonoBehaviour {
 	#endif
 	public static Limits cameraLimits;
 	public bool arduinoMode = false;
+
+	public static string ArduinoMsg;
 	// Use this for initialization
 	public void Start () {
 		cameraLimits = GetLimits ();
@@ -32,11 +34,12 @@ public class ArduinoConnector : MonoBehaviour {
 		#endif
 		Debug.Log (cameraLimits.Left +","+cameraLimits.Right+","+cameraLimits.Top+","+cameraLimits.Bottom);
 	}
-	public void ReproduceMovie (string s) {
-		if (s == "PONG") {
-			Debug.Log(s);
+	public void ReproduceMovie (string ser) {
+		if (ser == "PONG") {
+			Debug.Log(ser);
 		}
-		Rotator.xRot = 220 - (float.Parse(s) * 2.0f);
+		ArduinoMsg = ser;
+		Debug.Log (ArduinoMsg);
     }
 	public void Update (){
 		if (arduinoMode) {
@@ -44,7 +47,7 @@ public class ArduinoConnector : MonoBehaviour {
 			StartCoroutine
 			(
 				AsynchronousReadFromArduino (
-				(string s) => ReproduceMovie (s),     // Callback
+				(string ser) => ReproduceMovie (ser),     // Callback
 				() => Debug.LogError ("Error!"), // Error callback
 				10f                             // Timeout (seconds)
 			)
