@@ -8,11 +8,11 @@ public class Score : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		playerScore = 0;
-		playerStartPos = transform.position.x;
+		playerStartPos = GameObject.FindGameObjectWithTag ("Player").transform.position.x;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		playerScore = (int)(playerStartPos + transform.position.x);
+		playerScore = (int)( GameObject.FindGameObjectWithTag ("Player").transform.position.x - playerStartPos);
 	}
 }

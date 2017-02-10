@@ -17,6 +17,7 @@ public class ChasingEnemyMovement : MonoBehaviour {
 		if (objCollider.CompareTag ("Player")) {
 			//Kill Player
 			Debug.Log("Player caught");
+			PlayerDeath.playerDeath = true;
 		}
 	}
 }
