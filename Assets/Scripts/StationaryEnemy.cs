@@ -5,7 +5,8 @@ using UnityEngine;
 public class StationaryEnemy : MonoBehaviour {
 
 	Vector2[] triangleColliderPoints = new Vector2[4];
-	float visionWidth = 2.5f; 
+	float visionWidth = 2.5f;
+    float catchDist = 2.0f;
 	// Use this for initialization
 	void Start () {
 		
@@ -28,6 +29,11 @@ public class StationaryEnemy : MonoBehaviour {
 		triangleColliderPoints [3] = Vector2.zero;//transform.position;
 		//Debug.Log(gameObject.GetComponent<EdgeCollider2D>().points);
 		gameObject.GetComponent<EdgeCollider2D> ().points = triangleColliderPoints;
+       
+        if (Vector2.Distance(transform.position,GameObject.FindGameObjectWithTag("Player").transform.position) < catchDist) {
+            PlayerDeath.playerDeath = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().isGameStarted = false;
+        }
 	}
 
 	void OnTriggerEnter2D(Collider2D objCollider)

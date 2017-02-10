@@ -20,8 +20,9 @@ public class GameManager : MonoBehaviour {
             if (currentTime > timeToStart) {
                 gameTitle.SetActive(false);
                 currentTime = 0;
-                player.GetComponent<PlayerTestScript>().speedX = 5;
+                player.GetComponent<PlayerMovement>().isGameStarted = true;
                 player.GetComponent<Animator>().SetBool("GameStart", true);
+                GameObject.Find("ChasingEnemy").GetComponent<ChasingEnemyMovement>().speedX = 10;
             }
         }
         if (Input.GetKeyUp(KeyCode.Space)) currentTime = 0;

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ChasingEnemyMovement : MonoBehaviour {
 
-	const int speed = 10;
-
+	const int speed = 5;
+    public float speedX = 0;
 	// Update is called once per frame
 	void Update () {
-		float velX = speed * Time.deltaTime;
+		float velX = speedX * Time.deltaTime;
 		transform.position += new Vector3 (velX, 0, 0);
 	}
 
@@ -18,6 +18,7 @@ public class ChasingEnemyMovement : MonoBehaviour {
 			//Kill Player
 			Debug.Log("Player caught");
 			PlayerDeath.playerDeath = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().isGameStarted = false;
 		}
 	}
 }

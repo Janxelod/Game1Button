@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour {
 	const int minSpeed = 1;
 	float velX;
 	public static bool visible = true;
-
+    public bool isGameStarted = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,12 +16,15 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		string msg = ArduinoConnector.ArduinoMsg;
-		float _light = (int)(int.Parse (msg)/10);
-		velX = (float)(speed * _light + minSpeed) * Time.deltaTime;
-		transform.position += new Vector3 (velX, 0, 0);
-		//Debug.Log (visible);
-	}
+        if (isGameStarted) {
+            string msg = ArduinoConnector.ArduinoMsg;
+            float _light = (int)(int.Parse(msg) / 10);
+            velX = (float)(speed * _light + minSpeed) * Time.deltaTime;
+            transform.position += new Vector3(velX, 0, 0);
+            //Debug.Log (visible);
+        }
+
+    }
 
 	void OnTriggerEnter2D(Collider2D colliderObj)
 	{

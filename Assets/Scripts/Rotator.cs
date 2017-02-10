@@ -16,6 +16,6 @@ public class Rotator : MonoBehaviour {
 		Quaternion rot = Quaternion.Euler (xRot, 0, 0);
 		transform.rotation = rot;
 		string msg = ArduinoConnector.ArduinoMsg;
-		xRot = 300 - (int)(int.Parse (msg) / 10) * 30; 
+		xRot = 200 - (int)(int.Parse (msg) / 10) * 30; 
 	}
 }
