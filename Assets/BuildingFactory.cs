@@ -19,7 +19,7 @@ public class BuildingFactory : MonoBehaviour {
 	void Update () {
         if (lastPosition < CameraFollow.OrthographicBounds(worldCamera).max.x)
         {
-            Debug.Log("Passed last position");
+           // Debug.Log("Passed last position");
             CreateNewBuilding();
         }
 	}
