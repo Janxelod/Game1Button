@@ -35,7 +35,7 @@ public class StationaryEnemy : MonoBehaviour {
 		if (objCollider.CompareTag ("Player")) {
 			if (PlayerMovement.visible == true) {
 				//Kill player
-				transform.position = Vector2.Lerp(transform.position, objCollider.gameObject.transform.position,0.15f);
+				transform.position = Vector2.Lerp(transform.position, objCollider.gameObject.transform.position,0.2f);
 			//	transform.position = objCollider.gameObject.transform.position;
 				Debug.Log ("Player Seen");
 			}
@@ -47,7 +47,7 @@ public class StationaryEnemy : MonoBehaviour {
 		if (objCollider.CompareTag ("Player")) {
 			if (PlayerMovement.visible == true) {
 				//Kill player
-				transform.position = Vector2.Lerp(transform.position, objCollider.gameObject.transform.position,0.15f);
+				transform.position = Vector2.Lerp(transform.position, objCollider.gameObject.transform.position,0.2f);
 				Debug.Log ("Player Seen");
 			}
 		}
