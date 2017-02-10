@@ -6,6 +6,7 @@ public class PlayerTestScript : MonoBehaviour {
     public float speedX;
     private bool moveRight;
     private bool moveLeft;
+    public bool moveRightAlways;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,19 +18,29 @@ public class PlayerTestScript : MonoBehaviour {
         movePlayer();
     }
     void CheckInput() {
-        if (Input.GetKeyDown(KeyCode.RightArrow)) {
+        if (moveRightAlways){
             moveRight = true;
-            moveLeft = false;
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) {
-            moveLeft = true;
-            moveRight = false;
-        }
-        if (Input.GetKeyUp(KeyCode.RightArrow)) {
-            moveRight = false;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftArrow)) {
-            moveLeft = false;
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                moveRight = true;
+                moveLeft = false;
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                moveLeft = true;
+                moveRight = false;
+            }
+            if (Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                moveRight = false;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                moveLeft = false;
+            }
         }
     }
     void movePlayer() {
