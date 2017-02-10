@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour {
 
-	public static float xRot;
-
+	public static float xRot;	
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//transform.Rotate (new Vector3(xRot, -50));
-		Debug.Log(xRot);
+		//Debug.Log(xRot);
 		Quaternion rot = Quaternion.Euler (xRot, 0, 0);
-		transform.rotation = rot; 
+		transform.rotation = rot;
+		string msg = ArduinoConnector.ArduinoMsg;
+		xRot = 300 - (int)(int.Parse (msg) / 10) * 30; 
 	}
 }

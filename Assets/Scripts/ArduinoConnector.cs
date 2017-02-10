@@ -24,6 +24,8 @@ public class ArduinoConnector : MonoBehaviour {
 	#endif
 	public static Limits cameraLimits;
 	public bool arduinoMode = false;
+
+	public static string ArduinoMsg;
 	// Use this for initialization
 	public void Start () {
 		cameraLimits = GetLimits ();
@@ -33,10 +35,8 @@ public class ArduinoConnector : MonoBehaviour {
 		Debug.Log (cameraLimits.Left +","+cameraLimits.Right+","+cameraLimits.Top+","+cameraLimits.Bottom);
 	}
 	public void ReproduceMovie (string s) {
-		if (s == "PONG") {
-			Debug.Log(s);
-		}
-		Rotator.xRot = 220 - (float.Parse(s) * 2.0f);
+		ArduinoMsg = s;
+		//Debug.Log (ArduinoMsg);
     }
 	public void Update (){
 		if (arduinoMode) {
