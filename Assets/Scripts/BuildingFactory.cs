@@ -8,7 +8,7 @@ public class BuildingFactory : MonoBehaviour {
 
     private Camera worldCamera;
     public float lastPosition;
-
+    public Vector2 creationRange;
     // Use this for initialization
     void Start () {
         lastPosition = GameObject.Find("Building4").transform.position.x;
@@ -29,7 +29,9 @@ public class BuildingFactory : MonoBehaviour {
         GameObject newBuilding = Instantiate(buildings[randomIndex]);
         newBuilding.SetActive(true);
         newBuilding.transform.parent = buildings[randomIndex].transform.parent;
-        newBuilding.transform.position = new Vector3(lastPosition + 10, newBuilding.transform.position.y, -2);
+        float range = Random.Range(creationRange.x, creationRange.y);
+        //Debug.Log(range);
+        newBuilding.transform.position = new Vector3(lastPosition + 10 + range, newBuilding.transform.position.y, -2);
         lastPosition = newBuilding.transform.position.x;
         
     }
